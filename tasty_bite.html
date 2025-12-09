@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasty Bite — Indian Food SPA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="top-header">
+        <!-- logo and web name -->
+        <div class="header-left">
+            <div class="logo-wrap">
+                <img src="https://dcassetcdn.com/design_img/500681/114329/114329_3648251_500681_image.jpg" alt="Logo">
+            </div>
+            <div class="brand">
+                <h1>Tasty Bite</h1>
+                <p>Authentic Indian Foods</p>
+            </div>
+        </div>
+        <!-- navbar -->
+        <nav class="navbar">
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('about')">About Us</a>
+            <a href="#" onclick="showPage('order')">Your Order</a>
+            <a href="#" onclick="showPage('login')">Sign In</a>
+        </nav>
+    </header>
+    <!-- carousal wide-images -->
+    <div class="carousel">
+        <div class="images">
+            <div>
+                <img src="https://img.freepik.com/free-psd/food-menu-restaurant-facebook-cover-banner-template_120329-4875.jpg?semt=ais_hybrid&w=740&q=80" class="wide-image" />
+            </div>
+            <div>
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/002/076/168/small_2x/food-delivery-banner-design-flat-design-online-order-vector.jpg" class="wide-image2" />
+            </div>
+            <div>
+                <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/online-food-delivery-app-promotional-banner-design-template-45fbf13b2acfee3853a6acbe1c4c9f88_screen.jpg?ts=1738327255" class="wide_image3" />
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+
+        <!-- HOME SECTION -->
+        <section id="home" class="page show">
+            <div class="top-controls">
+                <div class="search">
+                    <input class="searchbar" id="searchBar" type="text" placeholder="Search dishes..." onkeyup="searchDish()">
+                </div>
+                <div class="filter">
+                    <select id="filterOption" onchange="filterDish()">
+                        <option value="all">All</option>
+                        <option value="veg">Veg</option>
+                        <option value="nonveg">Non-Veg</option>
+                    </select>
+                </div>
+            </div>
+            <div class="carousel">
+                <div class="slides">
+                    <div class="slide">🔥 40% OFF on all Biryanis today!</div>
+                    <div class="slide">🎉 Order 2 Paneer Tikka & Get 1 Free!</div>
+                    <div class="slide">🍽 Free Delivery on Orders Above ₹299!</div>
+                </div>
+            </div>
+            <!-- Dish card sections starts -->
+            <div id="dishContainer" class="main-container">
+                <!-- Dish Cards -->
+                <div class="card" data-name="Paneer Tikka" data-type="veg" onclick="openDish('dish1')">
+                    <div class="thumb">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYAud3G3kRsjZe3N5xs6NHI4uw-wx0BqJb1Q&s">
+                    </div>
+                    <h3>Paneer Tikka</h3>
+                    <p class="price">₹220</p>
+
+                    <button class="details-btn" onclick="event.stopPropagation(); openDish('dish1')">Details</button>
+                    <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart(this)">Add to Cart</button>
+                </div>
+
+                <div class="card" data-name="Butter Chicken" data-type="nonveg" onclick="openDish('dish2')">
+                    <div class="thumb">
+                        <img src="https://recipes.timesofindia.com/thumb/53205522.cms?width=1200&height=900">
+                    </div>
+                    <h3>Butter Chicken</h3>
+                    <p class="price">₹320</p>
+
+                    <button class="details-btn" onclick="event.stopPropagation(); openDish('dish2')">Details</button>
+                    <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart(this)">Add to Cart</button>
+                </div>
+
+                <div class="card" data-name="Masala Dosa" data-type="veg" onclick="openDish('dish3')">
+                    <div class="thumb">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO8owQcHu1csisSyh9hXKZ1f7eWK2hmbp7ZQ&s">
+                    </div>
+                    <h3>Masala Dosa</h3>
+                    <p class="price">₹120</p>
+
+                    <button class="details-btn" onclick="event.stopPropagation(); openDish('dish3')">Details</button>
+                    <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart(this)">Add to Cart</button>
+                </div>
+
+                <div class="card" data-name="Paneer Butter Masala" data-type="veg" onclick="openDish('dish4')">
+                    <div class="thumb">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcU022r52ta04BBgM8JGHkDs9j9u2GY-205w&s">
+                    </div>
+                    <h3>Paneer Butter Masala</h3>
+                    <p class="price">₹260</p>
+
+                    <button class="details-btn" onclick="openDish('dish4')">Details</button>
+                    <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart(this)">Add to Cart</button>
+                </div>
+
+                <div class="card" data-name="Veg Biryani" data-type="veg" onclick="openDish('dish5')">
+                    <div class="thumb">
+                        <img src="https://madhurasrecipe.com/wp-content/uploads/2023/03/Veg-Biryani-1.jpg">
+                    </div>
+                    <h3>Veg Biryani</h3>
+                    <p class="price">₹200</p>
+
+                    <button class="details-btn" onclick="event.stopPropagation(); openDish('dish5')">Details</button>
+                    <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart(this)">Add to Cart</button>
+                </div>
+
+                <div class="card" data-name="Chicken Biryani" data-type="nonveg" onclick="openDish('dish6')">
+                    <div class="thumb">
+                        <img src="https://nodashofgluten.com/wp-content/uploads/2025/02/Hyderabadi-Chicken-Biryani-Recipe-1.png.webp">
+                    </div>
+                    <h3>Chicken Biryani</h3>
+                    <p class="price">₹350</p>
+
+                    <button class="details-btn" onclick="event.stopPropagation(); openDish('dish6')">Details</button>
+                    <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart(this)">Add to Cart</button>
+                </div>
+
+                <div class="card" data-name="Idli Sambhar" data-type="veg" onclick="openDish('dish7')">
+                    <div class="thumb">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUX6jT68bUqAqXq0p2raSoOSkU3Wa_yhxMIw&s">
+                    </div>
+                    <h3>Idli Sambhar</h3>
+                    <p class="price">₹110</p>
+
+                    <button class="details-btn" onclick="event.stopPropagation(); openDish('dish7')">Details</button>
+                    <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart(this)">Add to Cart</button>
+                </div>
+
+                <div class="card" data-name="Dal Makhani" data-type="veg" onclick="openDish('dish8')">
+                    <div class="thumb">
+                        <img src="https://www.cookwithmanali.com/wp-content/uploads/2019/04/Restaurant-Style-Dal-Makhani.jpg">
+                    </div>
+                    <h3>Dal Makhani</h3>
+                    <p class="price">₹180</p>
+
+                    <button class="details-btn" onclick="event.stopPropagation(); openDish('dish8')">Details</button>
+                    <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart(this)">Add to Cart</button>
+                </div>
+
+                <div class="card" data-name="Chole Bhature" data-type="veg" onclick="openDish('dish9')">
+                    <div class="thumb">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyta2FEc05FPDkoHtzey9a8nmlgumGb7lDew&s">
+                    </div>
+                    <h3>Chole Bhature</h3>
+                    <p class="price">₹150</p>
+
+                    <button class="details-btn" onclick="event.stopPropagation(); openDish('dish9')">Details</button>
+                    <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart(this)">Add to Cart</button>
+                </div>
+
+                <div class="card" data-name="Gulab Jamun" data-type="veg" onclick="openDish('dish10')">
+                    <div class="thumb">
+                        <img src="https://static.toiimg.com/thumb/63799510.cms?imgsize=1091643&width=800&height=800">
+                    </div>
+                    <h3>Gulab Jamun</h3>
+                    <p class="price">₹80</p>
+
+                    <button class="details-btn" onclick="event.stopPropagation(); openDish('dish10')">Details</button>
+                    <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart(this)">Add to Cart</button>
+                </div>
+
+                <div class="card" data-name="Smash Burger" data-type="veg" onclick="openDish('dish11')">
+                    <div class="thumb">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfPEceBbG3Ev1q092Xkmz8mVdv95gkWy_HUg&s">
+                    </div>
+                    <h3>Smash Burger</h3>
+                    <p class="price">₹140</p>
+
+                    <button class="details-btn" onclick="event.stopPropagation(); openDish('dish11')">Details</button>
+                    <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart(this)">Add to Cart</button>
+                </div>
+
+                <div class="card" data-name="Pepperoni Pizza" data-type="veg" onclick="openDish('dish12')">
+                    <div class="thumb">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ90M6jDoG_SffoZZMmVEkmVCp4kpv1EF5Dw&s">
+                    </div>
+                    <h3>Pepperoni Pizza</h3>
+                    <p class="price">₹160</p>
+
+                    <button class="details-btn" onclick="event.stopPropagation(); openDish('dish12')">Details</button>
+                    <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart(this)">Add to Cart</button>
+                </div>
+
+            </div>
+        </section>
+        <!-- Dish card sections ends -->
+        <!-- Dish detail sections 1-10 -->
+        <section id="dish1" class="page dish-page">
+
+            <div class="dish-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYAud3G3kRsjZe3N5xs6NHI4uw-wx0BqJb1Q&s" alt="Paneer Tikka">
+            </div>
+            <div class="dish-info">
+                <h2>Paneer Tikka</h2>
+                <p class="description">A classic Indian starter made with juicy paneer cubes marinated in spiced yogurt and grilled with onions & capsicum.
+                    Smoky, flavorful, and served fresh—perfect for a delicious, protein-rich bite.</p>
+                <p class="price-full">₹220</p>
+                <label>Quantity:</label>
+                <input type="number" class="qty" value="1" min="1">
+                <button class="order-btn" onclick="goToPayment()">Order Now</button>
+                <button class="back" onclick="showPage('home')">← Back</button>
+            </div>
+        </section>
+
+        <section id="dish2" class="page dish-page">
+            <div class="dish-img"><img src="https://recipes.timesofindia.com/thumb/53205522.cms?width=1200&height=900" alt="Butter Chicken"></div>
+            <div class="dish-info">
+                <h2>Butter Chicken</h2>
+                <p class="description">Succulent chicken pieces simmered in a buttery tomato gravy, mildly spiced and creamy. A worldwide favorite for its smooth, rich taste.</p>
+                <p class="price-full">₹320</p>
+                <label>Quantity:</label>
+                <input type="number" class="qty" value="1" min="1">
+                <button class="order-btn" onclick="goToPayment()">Order Now</button>
+                <button class="back" onclick="showPage('home')">← Back</button>
+            </div>
+        </section>
+
+        <section id="dish3" class="page dish-page">
+            <div class="dish-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO8owQcHu1csisSyh9hXKZ1f7eWK2hmbp7ZQ&s" alt="Masala Dosa"></div>
+            <div class="dish-info">
+                <h2>Masala Dosa</h2>
+                <p class="description">A crispy South Indian rice crêpe filled with spiced potato masala. Light, crunchy, and served with chutney and sambar.</p>
+                <p class="price-full">₹100</p>
+                <label>Quantity:</label>
+                <input type="number" class="qty" value="1" min="1">
+                <button class="order-btn" onclick="goToPayment()">Order Now</button>
+                <button class="back" onclick="showPage('home')">← Back</button>
+            </div>
+        </section>
+
+        <section id="dish4" class="page dish-page">
+            <div class="dish-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO8owQcHu1csisSyh9hXKZ1f7eWK2hmbp7ZQ&s" alt="panner Butter Masala"></div>
+            <div class="dish-info">
+                <h2>panner Butter Masala</h2>
+                <p class="description">Soft paneer cubes cooked in a silky tomato-butter gravy with mild spices. Creamy, rich, and perfectly balanced.</p>
+                <p class="price-full">₹320</p>
+                <label>Quantity:</label>
+                <input type="number" class="qty" value="1" min="1">
+                <button class="order-btn" onclick="goToPayment()">Order Now</button>
+                <button class="back" onclick="showPage('home')">← Back</button>
+            </div>
+        </section>
+
+        <section id="dish5" class="page dish-page">
+            <div class="dish-img"><img src="https://madhurasrecipe.com/wp-content/uploads/2023/03/Veg-Biryani-1.jpg" alt="Veg Biryani"></div>
+            <div class="dish-info">
+                <h2>Veg Biryani</h2>
+                <p class="description">A fragrant basmati rice dish layered with fresh vegetables, herbs, and traditional biryani spices. Aromatic, colorful, and full of flavor.</p>
+                <p class="price-full">₹180</p>
+                <label>Quantity:</label>
+                <input type="number" class="qty" value="1" min="1">
+                <button class="order-btn" onclick="goToPayment()">Order Now</button>
+                <button class="back" onclick="showPage('home')">← Back</button>
+            </div>
+        </section>
+
+        <section id="dish6" class="page dish-page">
+            <div class="dish-img">
+                <img src="https://nodashofgluten.com/wp-content/uploads/2025/02/Hyderabadi-Chicken-Biryani-Recipe-1.png.webp" alt="Chicken Biryani" />
+            </div>
+            <div class="dish-info">
+                <h2>Chicken Biryani</h2>
+                <p class="description">Tender chicken slow-cooked with long-grain basmati rice, saffron, and bold spices. Juicy, aromatic, and irresistibly flavorful.</p>
+                <p class="price-full">₹200</p>
+                <label>Quantity:</label>
+                <input type="number" class="qty" value="1" min="1">
+                <button class="order-btn" onclick="goToPayment()">Order Now</button>
+                <button class="back" onclick="showPage('home')">← Back</button>
+            </div>
+        </section>
+
+        <section id="dish7" class="page dish-page">
+            <div class="dish-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUX6jT68bUqAqXq0p2raSoOSkU3Wa_yhxMIw&s" alt="Butter Chicken"></div>
+            <div class="dish-info">
+                <h2>Idli Sambhar</h2>
+                <p class="description">Soft steamed rice cakes served with hot, tangy sambar and fresh coconut chutney. Light, healthy, and comforting.</p>
+                <p class="price-full">₹320</p>
+                <label>Quantity:</label>
+                <input type="number" class="qty" value="1" min="1">
+                <button class="order-btn" onclick="goToPayment()">Order Now</button>
+                <button class="back" onclick="showPage('home')">← Back</button>
+            </div>
+        </section>
+
+        <section id="dish8" class="page dish-page">
+            <div class="dish-img"><img src="https://www.cookwithmanali.com/wp-content/uploads/2019/04/Restaurant-Style-Dal-Makhani.jpg" alt="Dal Makhani"></div>
+            <div class="dish-info">
+                <h2>Dal Makhani</h2>
+                <p class="description">A rich and creamy lentil curry slow-cooked with butter, cream, and aromatic spices. Smooth, flavorful, and a North Indian favorite.</p>
+                <p class="price-full">₹220</p>
+                <label>Quantity:</label>
+                <input type="number" class="qty" value="1" min="1">
+                <button class="order-btn" onclick="goToPayment()">Order Now</button>
+                <button class="back" onclick="showPage('home')">← Back</button>
+            </div>
+        </section>
+
+        <section id="dish9" class="page dish-page">
+            <div class="dish-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyta2FEc05FPDkoHtzey9a8nmlgumGb7lDew&s" alt="Chole Bhature"></div>
+            <div class="dish-info">
+                <h2>Chole Bhature</h2>
+                <p class="description">Fluffy fried bhature paired with spicy, tangy chickpea curry. A hearty and iconic North Indian street-food combo.</p>
+                <p class="price-full">₹120</p>
+                <label>Quantity:</label>
+                <input type="number" class="qty" value="1" min="1">
+                <button class="order-btn" onclick="goToPayment()">Order Now</button>
+                <button class="back" onclick="showPage('home')">← Back</button>
+            </div>
+        </section>
+
+        <section id="dish10" class="page dish-page">
+            <div class="dish-img">
+                <img src="https://static.toiimg.com/thumb/63799510.cms?imgsize=1091643&amp;width=800&amp;height=800" alt="Gulab Jamun">
+            </div>
+            <div class="dish-info">
+                <h2>Gulab Jamun</h2>
+                <p class="description">Soft, melt-in-the-mouth milk dumplings soaked in warm sugar syrup. Sweet, rich, and absolutely indulgent.</p>
+                <p class="price-full">₹60</p>
+                <label>Quantity:</label>
+                <input type="number" class="qty" value="1" min="1">
+                <button class="order-btn" onclick="goToPayment()">Order Now</button>
+                <button class="back" onclick="showPage('home')">← Back</button>
+            </div>
+        </section>
+
+        <section id="dish11" class="page dish-page">
+            <div class="dish-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfPEceBbG3Ev1q092Xkmz8mVdv95gkWy_HUg&s" alt="Smash Burger">
+            </div>
+            <div class="dish-info">
+                <h2>Smash Burger</h2>
+                <p class="description">A smash burger is a thin, crispy-edged patty created by smashing ground beef on a hot griddle, then served in a soft bun with simple toppings.</p>
+                <p class="price-full">₹140</p>
+                <label>Quantity:</label>
+                <input type="number" class="qty" value="1" min="1">
+                <button class="order-btn" onclick="goToPayment()">Order Now</button>
+                <button class="back" onclick="showPage('home')">← Back</button>
+            </div>
+        </section>
+
+        <section id="dish12" class="page dish-page">
+            <div class="dish-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ90M6jDoG_SffoZZMmVEkmVCp4kpv1EF5Dw&s" alt="Pepperoni Pizza">
+            </div>
+            <div class="dish-info">
+                <h2>Pepperoni Pizza</h2>
+                <p class="description">Pepperoni pizza is a cheesy tomato-based pizza topped with spicy pepperoni slices that become crispy and flavorful when baked.</p>
+                <p class="price-full">₹160</p>
+                <label>Quantity:</label>
+                <input type="number" class="qty" value="1" min="1">
+                <button class="order-btn" onclick="goToPayment()">Order Now</button>
+                <button class="back" onclick="showPage('home')">← Back</button>
+            </div>
+        </section>
+
+        <!-- LOGIN PAGE -->
+        <section id="login" class="page login-page">
+            <h2>Sign In</h2>
+
+            <input id="EmailVal" type="text" placeholder="Email">
+            <span id="emailError" class="error-msg"></span>
+
+            <input id="passwordVal" type="password" placeholder="Password">
+            <span id="passError" class="error-msg"></span>
+
+            <button class="login-btn" onclick="validateLogin()">Login</button>
+        </section>
+        <!-- about us nav -->
+        <section id="about" class="page">
+            <h2 class="about-heading">About Tasty Bite</h2>
+            <p class="about-para">
+                Tasty Bite brings you authentic Indian dishes prepared with fresh ingredients,
+                premium spices, and traditional recipes.
+                We deliver high-quality meals fast, hot, and with the best taste guaranteed.
+            </p>
+
+            <p class="about-para">
+                Our mission is to provide a delightful food experience with honesty, hygiene,
+                and unmatched taste. Thank you for choosing us!
+            </p>
+        </section>
+        <!-- order nav-->
+        <section id="order" class="page">
+            <h2>Your Order</h2>
+
+            <div id="cart-items" class="cart-list">
+                <!-- Items will appear here -->
+            </div>
+
+            <h3 id="cart-total">Total: ₹0</h3>
+            <button class="order-btn" onclick="goToPayment()">Order Now</button>
+            <button class="back" onclick="showPage('home')">← Back</button>
+        </section>
+
+    </div>
+    <!--payment section -->
+    <section id="payment" class="page">
+        <h2 class="payment-title">Choose Payment Method</h2>
+
+        <div class="payment-container">
+
+            <div class="payment-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR4ArUxtci1ip0bL0K9hs9QtwcJGy_gu9iYA&s" alt="Google Pay">
+                <h3>Google Pay</h3>
+                <button class="pay-now-btn" onclick="completePayment()">Pay Now</button>
+            </div>
+
+            <div class="payment-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzlB2KXeeFbXlCqIiFo6dMdhpDIk_Xvk-Phw&s" alt="PhonePe">
+                <h3>PhonePe</h3>
+                <button class="pay-now-btn" onclick="completePayment()">Pay Now</button>
+            </div>
+
+            <div class="payment-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Paytm_logo.png" alt="Paytm">
+                <h3>Paytm</h3>
+                <button class="pay-now-btn" onclick="completePayment()">Pay Now</button>
+            </div>
+
+            <div class="payment-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3592/3592913.png" alt="COD">
+                <h3>Cash on Delivery</h3>
+                <button class="pay-now-btn" onclick="completePayment()">Confirm Order</button>
+            </div>
+        </div>
+        <button class="back" onclick="showPage('order')">← Back</button>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Address: Tasty Bite, sector 11,Kamothe ,Navi Mumbai</p>
+        <p>Follow Us:</p>
+        <div class="social">
+            <a href="https://www.instagram.com/" target="_blank">📸 Instagram</a>
+            <a href="https://wa.me/8600477811" target="_blank">💬 WhatsApp-8600477811</a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
